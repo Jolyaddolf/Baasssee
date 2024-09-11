@@ -1,0 +1,62 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="450"
+        x:Class="Baasssee.MainWindow" 
+		x:CompileBindings="False"
+        Title="Baasssee">
+
+	<Grid Margin="10" RowDefinitions="Auto,*,50" ShowGridLines="True">
+		<StackPanel>
+
+			<DockPanel Margin="13">
+				<ComboBox Width="150" SelectedIndex="3">
+					<ComboBoxItem Content="10"></ComboBoxItem>
+					<ComboBoxItem Content="50"></ComboBoxItem>
+					<ComboBoxItem Content="200"></ComboBoxItem>
+					<ComboBoxItem Content="Всё"></ComboBoxItem>
+				</ComboBox>
+				<ComboBox Width="150" Margin="10,0,10,0" SelectedIndex="2">
+					<ComboBoxItem Content="Мужской"></ComboBoxItem>
+					<ComboBoxItem Content="Женский"></ComboBoxItem>
+					<ComboBoxItem Content="Все"></ComboBoxItem>
+				</ComboBox>
+				<TextBox
+					Watermark="Поиск">
+				</TextBox>
+			</DockPanel>
+		</StackPanel>
+		<ListBox Name="ClientsListBox" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border>
+						<StackPanel Orientation="Vertical" Spacing="10">
+							<Grid ColumnDefinitions="40,120,120,170,78,150,160,140,70,50,200,*" ShowGridLines="False" Height="50">
+								<TextBlock Grid.Column="0" Text ="{Binding Id}" />
+								<TextBlock Grid.Column="1" Text="{Binding Lastname}"/>
+								<TextBlock Grid.Column="2" Text="{Binding Firstname}"/>
+								<TextBlock Grid.Column="3" Text="{Binding Surname}"/>
+								<TextBlock Grid.Column="4" Text="{Binding Code}"/>
+								<TextBlock Grid.Column="5" Text="{Binding Phone}"/>
+								<TextBlock Grid.Column="6" Text="{Binding Email}"/>
+								<TextBlock Grid.Column="7" Text="{Binding Birthday}"/>
+								<TextBlock Grid.Column="8" Text="{Binding Registrationdate}"/>
+								
+							</Grid>
+						</StackPanel>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<DockPanel Grid.Row="2">
+			<Button Margin="10" Width="178" CornerRadius="30" HorizontalAlignment="Left"
+				Content="Предыдущая страница">
+			</Button>
+			<Button Margin="10" Width="178" CornerRadius="30" HorizontalAlignment="Right"
+				Content="Следующая страница">
+			</Button>
+		</DockPanel>
+	</Grid>
+</Window>
+
