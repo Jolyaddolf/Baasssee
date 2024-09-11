@@ -6,8 +6,22 @@
         x:Class="Baasssee.MainWindow" 
 		x:CompileBindings="False"
         Title="Baasssee">
-
-	<Grid Margin="10" RowDefinitions="Auto,*,50" ShowGridLines="True">
+	<Window.Styles>
+		<Styles>
+			<Style Selector="TextBlock">
+				<Setter	Property="VerticalAlignment" Value="Center"/>
+				<Setter	Property="HorizontalAlignment" Value="Center"/>
+				
+			</Style>
+			
+			
+			
+		</Styles>
+	</Window.Styles>
+	
+	
+	
+	<Grid Margin="10" RowDefinitions="Auto,*,50" >
 		<StackPanel>
 
 			<DockPanel Margin="13">
@@ -22,17 +36,17 @@
 					<ComboBoxItem Content="Женский"></ComboBoxItem>
 					<ComboBoxItem Content="Все"></ComboBoxItem>
 				</ComboBox>
-				<TextBox
+				<TextBox Width="150" Margin="0,0,700,0" Background="WhiteSmoke"
 					Watermark="Поиск">
 				</TextBox>
 			</DockPanel>
 		</StackPanel>
-		<ListBox Name="ClientsListBox" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+		<ListBox Background="Gray" CornerRadius="20" Name="ClientsListBox" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<Border>
+					<Border Background="White"  >
 						<StackPanel Orientation="Vertical" Spacing="10">
-							<Grid ColumnDefinitions="40,120,120,170,78,150,160,140,70,50,200,*" ShowGridLines="False" Height="50">
+							<Grid ColumnDefinitions="40,100,100,120,78,150,180,140,70,100,300" ShowGridLines="False" Height="50">
 								<TextBlock Grid.Column="0" Text ="{Binding Id}" />
 								<TextBlock Grid.Column="1" Text="{Binding Lastname}"/>
 								<TextBlock Grid.Column="2" Text="{Binding Firstname}"/>
@@ -41,7 +55,7 @@
 								<TextBlock Grid.Column="5" Text="{Binding Phone}"/>
 								<TextBlock Grid.Column="6" Text="{Binding Email}"/>
 								<TextBlock Grid.Column="7" Text="{Binding Birthday}"/>
-								<TextBlock Grid.Column="8" Text="{Binding Registrationdate}"/>
+								<TextBlock Grid.Column="8" Text="{Binding Registationdate}"/>
 								
 							</Grid>
 						</StackPanel>
@@ -50,11 +64,11 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 		<DockPanel Grid.Row="2">
-			<Button Margin="10" Width="178" CornerRadius="30" HorizontalAlignment="Left"
-				Content="Предыдущая страница">
+			<Button Margin="10"  HorizontalAlignment="Left"
+				Content="Back">
 			</Button>
-			<Button Margin="10" Width="178" CornerRadius="30" HorizontalAlignment="Right"
-				Content="Следующая страница">
+			<Button Margin="10"   HorizontalAlignment="Right"
+				Content="Next">
 			</Button>
 		</DockPanel>
 	</Grid>
