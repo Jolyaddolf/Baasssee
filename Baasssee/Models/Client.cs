@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Avalonia.Media.Imaging;
+using System;
 using System.Collections.Generic;
 
 namespace Baasssee.Models;
@@ -18,6 +19,7 @@ public partial class Client
     public string? Phone { get; set; }
 
     public string? Photopath { get; set; }
+    public Bitmap? Photo => Photopath != null ? new Bitmap($@"assets\\{Photopath}") :null;
 
     public DateOnly? Birthday { get; set; }
 

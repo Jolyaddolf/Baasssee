@@ -56,6 +56,7 @@
 								<TextBlock Grid.Column="6" Text="{Binding Email}"/>
 								<TextBlock Grid.Column="7" Text="{Binding Birthday}"/>
 								<TextBlock Grid.Column="8" Text="{Binding Registationdate}"/>
+								<Image Grid.Column="9" Source="{Binding Photo}"/>
 								
 							</Grid>
 						</StackPanel>
@@ -64,11 +65,12 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 		<DockPanel Grid.Row="2">
-			<Button Margin="10"  HorizontalAlignment="Left"
+			<Button Name="backbutton" Margin="10"  HorizontalAlignment="Left"
 				Content="Back">
 			</Button>
-			<Button Margin="10"   HorizontalAlignment="Right"
-				Content="Next">
+			<Button Name="Nextbutton" Margin="10"   HorizontalAlignment="Right"
+				Content="Next"
+					>
 			</Button>
 		</DockPanel>
 	</Grid>
