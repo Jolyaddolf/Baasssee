@@ -37,7 +37,7 @@
 					<ComboBoxItem Content="Все"></ComboBoxItem>
 				</ComboBox>
 				<TextBox Width="150" Margin="0,0,700,0" Background="WhiteSmoke"
-					Watermark="Поиск">
+					Watermark="поиск">
 				</TextBox>
 			</DockPanel>
 		</StackPanel>
