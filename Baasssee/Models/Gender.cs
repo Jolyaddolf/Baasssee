@@ -10,4 +10,8 @@ public partial class Gender
     public string? Namegender { get; set; }
 
     public virtual ICollection<Client> Clients { get; set; } = new List<Client>();
+
+    public virtual Gender CodeNavigation { get; set; } = null!;
+
+    public virtual Gender? InverseCodeNavigation { get; set; }
 }

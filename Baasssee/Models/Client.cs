@@ -8,9 +8,9 @@ public partial class Client
 {
     public int Id { get; set; }
 
-    public string? Lastname { get; set; }
+    public string Lastname { get; set; } = null!;
 
-    public string? Firstname { get; set; }
+    public string Firstname { get; set; } = null!;
 
     public string? Surname { get; set; }
 
@@ -19,7 +19,8 @@ public partial class Client
     public string? Phone { get; set; }
 
     public string? Photopath { get; set; }
-    public Bitmap? Photo => Photopath != null ? new Bitmap($@"assets\\{Photopath}") :null;
+
+    public Bitmap? Photo => Photopath != null ? new Bitmap($@"assets\\{Photopath}") : null;
 
     public DateOnly? Birthday { get; set; }
 
@@ -27,5 +28,5 @@ public partial class Client
 
     public DateOnly? Registationdate { get; set; }
 
-    public virtual Gender GenderNavigation { get; set; } = null;
+    public virtual Gender? GenderNavigation { get; set; }
 }

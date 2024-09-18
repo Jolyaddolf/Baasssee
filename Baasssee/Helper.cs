@@ -1,4 +1,5 @@
-﻿using Baasssee.Context;
+﻿using Baasssee;
+using Baasssee.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Baasssee
 {
    internal class Helper
     {
-        public static User737Context Database  = new User737Context();
+      static public User737Context Database = new User737Context();
     }
 }

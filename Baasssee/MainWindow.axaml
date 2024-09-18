@@ -13,51 +13,63 @@
 				<Setter	Property="HorizontalAlignment" Value="Center"/>
 				
 			</Style>
-			
-			
-			
 		</Styles>
 	</Window.Styles>
 	
 	
-	
-	<Grid Margin="10" RowDefinitions="Auto,*,50" >
+	<Grid 
+		Margin="10"
+		RowDefinitions="Auto,*,50" >
 		<StackPanel>
 
-			<DockPanel Margin="13">
-				<ComboBox Width="150" SelectedIndex="3">
+			<DockPanel
+				Margin="13">
+				<ComboBox
+					Width="150"
+					SelectedIndex="3">
 					<ComboBoxItem Content="10"></ComboBoxItem>
 					<ComboBoxItem Content="50"></ComboBoxItem>
 					<ComboBoxItem Content="200"></ComboBoxItem>
 					<ComboBoxItem Content="Всё"></ComboBoxItem>
 				</ComboBox>
-				<ComboBox Width="150" Margin="10,0,10,0" SelectedIndex="2">
+				<ComboBox Width="150"
+						  Margin="10,0,10,0"
+						  SelectedIndex="2">
 					<ComboBoxItem Content="Мужской"></ComboBoxItem>
 					<ComboBoxItem Content="Женский"></ComboBoxItem>
 					<ComboBoxItem Content="Все"></ComboBoxItem>
 				</ComboBox>
-				<TextBox Width="150" Margin="0,0,700,0" Background="WhiteSmoke"
+				<TextBox Name="SearchTextBox"
+					Width="150"
+					Margin="0,0,700,0"
+					Background="WhiteSmoke"
 					Watermark="поиск">
 				</TextBox>
 			</DockPanel>
 		</StackPanel>
-		<ListBox Background="Gray" CornerRadius="20" Name="ClientsListBox" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+		<ListBox 
+			Background="Gray" 
+			CornerRadius="20"
+			Name="ClientsListBox" 
+			Grid.Row="1"
+			ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<Border Background="White"  >
+					<Border Background="White" Padding="10">
 						<StackPanel Orientation="Vertical" Spacing="10">
-							<Grid ColumnDefinitions="40,100,100,120,78,150,180,140,70,100,300" ShowGridLines="False" Height="50">
-								<TextBlock Grid.Column="0" Text ="{Binding Id}" />
-								<TextBlock Grid.Column="1" Text="{Binding Lastname}"/>
-								<TextBlock Grid.Column="2" Text="{Binding Firstname}"/>
-								<TextBlock Grid.Column="3" Text="{Binding Surname}"/>
-								<TextBlock Grid.Column="4" Text="{Binding Code}"/>
-								<TextBlock Grid.Column="5" Text="{Binding Phone}"/>
-								<TextBlock Grid.Column="6" Text="{Binding Email}"/>
-								<TextBlock Grid.Column="7" Text="{Binding Birthday}"/>
-								<TextBlock Grid.Column="8" Text="{Binding Registationdate}"/>
-								<Image Grid.Column="9" Source="{Binding Photo}"/>
-								
+							<Grid ColumnDefinitions="40,100,100,120,78,150,180,140,70,50,300" ShowGridLines="False" Height="50">
+								<TextBlock Grid.Column="0" Text="{Binding Id}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+								<TextBlock Grid.Column="1" Text="{Binding Lastname}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+								<TextBlock Grid.Column="2" Text="{Binding Firstname}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+								<TextBlock Grid.Column="3" Text="{Binding Surname}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+								<TextBlock Grid.Column="4" Text="{Binding Code}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+								<TextBlock Grid.Column="5" Text="{Binding Phone}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+								<TextBlock Grid.Column="6" Text="{Binding Email}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+								<TextBlock Grid.Column="7" Text="{Binding Birthday}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+								<TextBlock Grid.Column="8" Text="{Binding RegistrationDate}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+								<Image Grid.Column="9" Source="{Binding Photo}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 							</Grid>
 						</StackPanel>
 					</Border>

@@ -69,7 +69,7 @@ public partial class User737Context : DbContext
 
             entity.HasOne(d => d.GenderNavigation).WithMany(p => p.Clients)
                 .HasForeignKey(d => d.Gender)
-                .HasConstraintName("client_gender_fk");
+                .HasConstraintName("client_genders_fk");
         });
 
         modelBuilder.Entity<Document>(entity =>
@@ -95,6 +95,11 @@ public partial class User737Context : DbContext
             entity.Property(e => e.Namegender)
                 .HasColumnType("character varying")
                 .HasColumnName("namegender");
+
+            entity.HasOne(d => d.CodeNavigation).WithOne(p => p.InverseCodeNavigation)
+                .HasForeignKey<Gender>(d => d.Code)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("genders_genders_fk");
         });
 
         modelBuilder.Entity<Tag>(entity =>

@@ -17,7 +17,7 @@ namespace Baasssee
     {
 
         private int Curentindex = 0;
-        private const int pageSize = 9;
+        private const int pageSize = 10;
 
         
 
@@ -31,12 +31,38 @@ namespace Baasssee
 
             Nextbutton.Click += nextbutton;
             backbutton.Click += Backbutton;
+            SearchTextBox.TextChanged += OnSearchText;
+            
+
 
         }
 
-        private void LoadServices()
+        private void LoadServices( string searchItem = "", string shortBy= "Firstname")
+
+           
+             
         {
-            var Clients = Helper.Database.Clients.Include(x => x.GenderNavigation).Skip(Curentindex * pageSize).Take(pageSize).Select(x => new
+            var query = Helper.Database.Clients.Include(x => x.GenderNavigation).Skip(Curentindex * pageSize).Take(pageSize).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchItem))
+            {
+                query = query.Where(x => x.Firstname.Contains(searchItem) ||
+                                        x.Lastname.Contains(searchItem) ||
+                                        x.Surname.Contains(searchItem) ||
+                                        x.Email.Contains(searchItem) ||
+                                        x.Phone.Contains(searchItem));
+
+            }
+
+            query = shortBy switch
+            {
+                "Firstname" => query.OrderBy(x => x.Firstname),
+                "Lastname" => query.OrderBy(x => x.Lastname),
+                "Registationdate" => query.OrderBy(x => x.Registationdate),
+                _=> query.OrderBy(x => x.Firstname),
+            };
+
+            ClientsListBox.ItemsSource = query.Select(x => new
             {
 
 
@@ -54,7 +80,7 @@ namespace Baasssee
 
             }).ToList();
 
-            ClientsListBox.ItemsSource = Clients;
+            
 
             
         }
@@ -69,23 +95,21 @@ namespace Baasssee
                 LoadServices();
             
             }
-        
-        
-        
-        
+
         }
         private void nextbutton(object sender, RoutedEventArgs e)
         {
             
             
                 Curentindex++;
-                LoadServices();
+            LoadServices();
+        }
 
-            
+        private void OnSearchText(object sender, TextChangedEventArgs e)
+        {
 
-
-
-
+            var searchItem = SearchTextBox.Text;
+            LoadServices(searchItem);
         }
 
 
